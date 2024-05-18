@@ -1,0 +1,46 @@
+{% extends 'base.html' %} <!--sirve para extender de la plantilla base.html-->
+{% block titulo%} Libros {% endblock titulo %} <!--sirve para sobreescribir el contenido de la etiqueta title-->
+{% block contenido %} <!--sirve para sobreescribir el contenido de la etiqueta body-->
+ <div class="container">
+    <div class="row justify-content-center align-items-center g-2">
+        <h1>Lista de los libros </h1>
+        <div class="col-4">
+        <a name="" id="" class="btn btn-primary" href="{% url 'crear'%}" role="button" >Nuevo Libro</a>      
+        </div>
+        <div class="col-8"></div>
+       <div class="table-responsive">
+        <table class="table table-primary" >
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Titulo</th>
+                    <th scope="col">Portada</th>
+                    <th scope="col">Autor</th>
+                    <th scope="col">Editorial</th>
+                    <th scope="col">Fecha de publicacion</th>
+                    <th scope="col">Accion</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for libro in libros %}
+                <tr>
+                    <th scope="row">{{libro.idlibro}}</th>
+                    <td>{{libro.titulo}}</td>
+                    <td><img src="{{libro.portada.url}}" alt="portada" width="100" height="100"></td>
+                    <td>{{libro.autor}}</td>
+                    <td>{{libro.editorial}}</td>
+                    <td>{{libro.fecha_publicacion}}</td>
+                    <td>
+                        <a name="" id="" href="{% url 'editar' libro.idlibro%}" class="btn btn-primary" role="button">Editar</a>
+                        <a name="" id="" href="{% url 'eliminar' libro.idlibro%}" class="btn btn-danger" role="button">Eliminar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+       </div>
+       
+    </div>    
+ </div>
+ 
+{% endblock contenido %} <!--sirve para sobreescribir el contenido de la etiqueta body-->

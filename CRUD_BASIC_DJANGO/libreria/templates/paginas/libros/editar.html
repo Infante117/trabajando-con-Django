@@ -1,0 +1,17 @@
+{% extends 'base.html' %} <!--sirve para extender de la plantilla base.html-->
+{% block titulo%} Libros {% endblock titulo %} <!--sirve para sobreescribir el contenido de la etiqueta title-->
+{% block contenido %} <!--sirve para sobreescribir el contenido de la etiqueta body-->
+<div class="card">
+    <div class="card-header">
+        <h4>Editar Libro</h4>
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Datos del libro</h4>
+        <!--incluimos el formulario-->
+        {% include 'paginas/libros/form.html' %}
+    </div>
+    <div class="card-footer text-muted">
+    </div>
+
+</div>
+{% endblock contenido %} <!--sirve para sobreescribir el contenido de la etiqueta body-->
